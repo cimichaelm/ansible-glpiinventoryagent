@@ -1,6 +1,6 @@
 galaxy_info:
   author: your name
-  description: your description
+  description: deploy glpi inventory agent
   company: your company (optional)
 
   # If the issue tracker for your role is not on github, uncomment the
@@ -14,7 +14,7 @@ galaxy_info:
   # - GPLv3
   # - Apache
   # - CC-BY
-  license: license (GPLv2, CC-BY, etc)
+  license: license BSD
 
   min_ansible_version: 2.4
 
