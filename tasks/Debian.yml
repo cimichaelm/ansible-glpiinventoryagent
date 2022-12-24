@@ -34,3 +34,10 @@
   debug:
     msg: "{{ installlog.stdout }}"
 
+- name: Run Agent
+  ansible.builtin.command:
+    cmd: "{{ glpiinventoryagent_command }}"
+    chdir: "{{ glpi_workdir }}"
+  register: runlog
+  become: yes
+  when: glpi_initialrun
