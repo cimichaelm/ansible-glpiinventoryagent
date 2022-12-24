@@ -3,5 +3,5 @@
 glpiinventoryagent_pkgs: []
 glpiagentversion: "1.4"
 glpibaseurl: https://github.com/glpi-project
-glpiagenturl: "{{ glpibaseurl }}/glpi-agent/releases/download/${ver}/glpi-agent-{{ glpiagentversion }}-linux-installer.pl"
+glpiagenturl: "{{ glpibaseurl }}/glpi-agent/releases/download/{{glpiagentversion }}/glpi-agent-{{ glpiagentversion }}-linux-installer.pl"
 glpiagentinstaller: "glpi-agent-{{ glpiagentversion }}-linux-installer.pl"
