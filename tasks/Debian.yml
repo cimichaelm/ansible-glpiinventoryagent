@@ -20,5 +20,26 @@
 - name: Download Installer
   get_url: url="{{ glpiagenturl }}" dest="{{ glpi_workdir }}" mode=0755
 
+- name: Start glpi-agent
+  service:
+    name: glpi-agent
+    state: stopped
+  
 - name: Run Installer
-  cmd: "{{ glpiagentinstaller }} -s "{{ glpiinventoryagent_server_url }}" -l "{{  glpi_inventorydir }}" --type=all -v"
+  ansible.builtin.command:
+    cmd: "perl {{ glpi_workdir }}/{{ glpiagentinstaller|quote }} -s {{ glpiinventoryagent_server_url }} -l {{  glpi_inventorydir }} --type={{ glpi_install_tasks }}"
+    chdir: "{{ glpi_workdir }}"
+  register: installlog
+  become: yes
+
+- name: Install log stderr
+  debug:
+    msg: "{{ installlog.stderr }}"
+- name: Install log stdout
+  debug:
+    msg: "{{ installlog.stdout }}"
+
+- name: Start glpi-agent
+  service:
+    name: glpi-agent
+    state: started

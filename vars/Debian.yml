@@ -1,6 +1,6 @@
 ---
-# vars file for ansible-fusioninventory-agent
-fusioninventoryagent_pkgs:
+# vars file for ansible-glpiinventory-agent
+glpiinventoryagent_pkgs:
   - hwdata
   - hdparm
   - libuniversal-require-perl
@@ -16,4 +16,8 @@ fusioninventoryagent_pkgs:
   - libsocket-getaddrinfo-perl
   - libtext-template-perl
   
-fusioninventoryagent_deb: http://debian.fusioninventory.org/downloads/fusioninventory-agent_2.4-2_all.deb 
+glpiinventoryagent_deb:
+glpiagentversion: "1.4"
+glpibaseurl: https://github.com/glpi-project
+glpiagenturl: "{{ glpibaseurl }}/glpi-agent/releases/download/{{glpiagentversion }}/glpi-agent-{{ glpiagentversion }}-linux-installer.pl"
+glpiagentinstaller: "glpi-agent-{{ glpiagentversion }}-linux-installer.pl"

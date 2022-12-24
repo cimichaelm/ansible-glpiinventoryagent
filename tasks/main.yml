@@ -16,13 +16,13 @@
     src: agent.cfg
     dest: "{{ glpiinventoryagent_configdir }}/{{ glpiinventoryagent_configfile }}"
     mode: 0640
-  tags: [glpiinventoryagent, cfg]
+  tags: [always, glpiinventoryagent, cfg]
   register: configfile
 
-- name: Run tasks after configuration file changes
-  shell: "{{ glpiinventoryagent_full_command }} --debug"
-  tags: [glpiinventoryagent, cfg]
-  when: configfile.changed
+#- name: Run tasks after configuration file changes
+#  shell: "{{ glpiinventoryagent_full_command }} --debug"
+#  tags: [never, glpiinventoryagent, cfg]
+#  when: configfile.changed
 
 - name: Ensure daily execution through CRON
   cron:
@@ -32,4 +32,4 @@
     hour: '*'
     minute: '*'
     #minute: "{{ 59|random(seed=inventory_hostname) }}"
-  tags: [glpiinventoryagent, cfg, cron]
+  tags: [never, glpiinventoryagent, cfg, cron]
