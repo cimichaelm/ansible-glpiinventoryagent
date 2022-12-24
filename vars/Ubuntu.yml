@@ -1,4 +1,7 @@
 ---
-# vars file for ansible-fusioninventory-agent
-fusioninventoryagent_pkgs:
-  - fusioninventory-agent
+# vars file for ansible-glpiinventory-agent
+glpiinventoryagent_pkgs: []
+glpiagentversion: "1.4"
+glpibaseurl: https://github.com/glpi-project
+glpiagenturl: "{{ glpibaseurl }}/glpi-agent/releases/download/${ver}/glpi-agent-{{ glpiagentversion }}-linux-installer.pl"
+glpiagentinstaller: "glpi-agent-{{ glpiagentversion }}-linux-installer.pl"
