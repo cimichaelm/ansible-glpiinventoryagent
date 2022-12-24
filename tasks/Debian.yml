@@ -1,10 +1,10 @@
 ---
 - name: Ensure packages are installed
   apt:
-    name: "{{ fusioninventoryagent_pkgs }}"
-  tags: [fusioninventoryagent]
+    name: "{{ glpiinventoryagent_pkgs }}"
+  tags: [glpiinventoryagent]
 
-- name: Ensure FusioninventoryAgent package is available
+- name: Ensure GlpiinventoryAgent package is available
   apt:
-    deb: "{{ fusioninventoryagent_deb }}"
-  tags: [fusioninventoryagent]
+    deb: "{{ glpiinventoryagent_deb }}"
+  tags: [glpiinventoryagent]
