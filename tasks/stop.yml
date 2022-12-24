@@ -1,0 +1,6 @@
+---
+- name: Stop glpi-agent
+  service:
+    name: glpi-agent
+    state: stopped
+  

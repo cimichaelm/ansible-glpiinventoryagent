@@ -1,0 +1,6 @@
+---
+- name: Start glpi-agent
+  service:
+    name: glpi-agent
+    state: started
+  
