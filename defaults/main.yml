@@ -1,8 +1,8 @@
 ---
 # defaults file for glpiinventoryagent
 glpiinventoryagent_path_env: /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
-glpiinventoryagent_command: glpiinventory-agent
-glpiinventoryagent_configdir: /etc/glpiinventory
+glpiinventoryagent_command: glpi-agent
+glpiinventoryagent_configdir: /etc/glpi
 glpiinventoryagent_configfile: agent.cfg
 glpiinventoryagent_logger: Syslog
 glpiinventoryagent_nop2p: 1
