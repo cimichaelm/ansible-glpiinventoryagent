@@ -10,6 +10,10 @@ glpiinventoryagent_tasks:
   - Collect
   - Inventory
 
+glpi_workdir: /var/tmp
+glpi_install_pkgs: False
+glpiinventoryagent_server_url:
+glpi_inventorydir: /var/tmp
 
 # constructed from the above
 glpiinventoryagent_full_command: "PATH={{ glpiinventoryagent_path_env}} {{ glpiinventoryagent_command }} --conf-file=\"{{ glpiinventoryagent_configdir }}/{{ glpiinventoryagent_configfile }}\""
