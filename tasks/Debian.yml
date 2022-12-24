@@ -13,12 +13,12 @@
 
 - name: Creates Work Directory
   file: path="{{ glpi_workdir }}" state=directory
-  
+
 - name: Creates Inventory Directory
   file: path="{{ glpi_inventorydir }}" state=directory
-  
+
 - name: Download Installer
   get_url: url="{{ glpiagenturl }}" dest="{{ glpi_workdir }}" mode=0755
 
 - name: Run Installer
-  cmd: "{{ glpiagentinstaller }} -s https://glpi-dev.k02.pwapp.pathcom.com -l /var/tmp/inventory --type=all -v
+  cmd: "{{ glpiagentinstaller }} -s "{{ glpiinventoryagent_server_url }}" -l "{{  glpi_inventorydir }}" --type=all -v"
