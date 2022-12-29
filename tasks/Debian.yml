@@ -19,6 +19,14 @@
 
 - name: Download Installer
   get_url: url="{{ glpiagenturl }}" dest="{{ glpi_workdir }}" mode=0755
+- name: Copy install script
+  copy: src=glpi-agent-install.sh dest="{{ glpi_workdir }}" owner=root group=root mode=0755
+- name: Run Installer
+  ansible.builtin.command:
+    cmd: "{{ glpi_workdir }}/glpi-agent-install.sh {{ glpiinventoryagent_server_url }} {{  glpi_inventorydir }}
+    chdir: "{{ glpi_workdir }}"
+  register: installlog
+  become: yes
 
 - name: Run Installer
   ansible.builtin.command:
@@ -26,6 +34,7 @@
     chdir: "{{ glpi_workdir }}"
   register: installlog
   become: yes
+  tags: [never]
 
 - name: Install log stderr
   debug:
