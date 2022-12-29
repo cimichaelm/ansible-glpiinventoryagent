@@ -8,7 +8,7 @@ defaults()
     logfile="${logdir}/install.log"
     ver=1.4
     prog="glpi-agent-${ver}-linux-installer.pl"
-    progopts="--install -s $server -l $invdir --type=all"
+    progopts="--install --type=all"
 }
 
 # create_directory if not existing
@@ -30,18 +30,19 @@ setup()
 
 install_glpi_agent()
 {
-
-    sudo perl $prog $progopts | tee $logfile
+    Lserver=$1
+    Linvdir=$2
+    sudo perl $prog $progopts -s $Lserver -l $Linvdir | tee $logfile
 }
 
 
-server=$0
-invdir=$1
+server=$1
+invdir=$2
 
 defaults
 
 setup
 
-install_glpi_agent
+install_glpi_agent $server $invdir
 
 exit 0
