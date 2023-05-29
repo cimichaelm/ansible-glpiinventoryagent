@@ -8,7 +8,9 @@ defaults()
     logfile="${logdir}/install.log"
     ver=1.4
     prog="glpi-agent-${ver}-linux-installer.pl"
-    progopts="--install --type=all"
+    # installtype: typical, network, all
+    installtype="typical"
+    progopts="--install --type=${installtype} --no-httpd"
 }
 
 # create_directory if not existing
