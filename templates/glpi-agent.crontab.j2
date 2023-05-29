@@ -1,0 +1,3 @@
+# Don't remove --wait option (delay in seconds) so the agent wait a random
+# time before really run its work
+00 01 1 * * /usr/bin/glpi-agent --wait=1800 > /var/lib/glpi-agent/cron.log 2>&1
