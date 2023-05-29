@@ -39,7 +39,7 @@
     name: Glpiinventory run
     state: present
     job: "{{ glpi_batch_command }}"
-    day: '1'
+    weekday: '1'
     hour: '*'
     minute: '*'
     #minute: "{{ 59|random(seed=inventory_hostname) }}"
