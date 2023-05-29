@@ -50,3 +50,15 @@
   register: runlog
   become: yes
   when: glpi_initialrun
+
+- name: disable glpi-agent
+  service:
+    name: glpi-agent
+    state: disabled
+  when: not glpi_daemon
+
+- name: Stop glpi-agent
+  service:
+    name: glpi-agent
+    state: stopped
+  when: not glpi_daemon
