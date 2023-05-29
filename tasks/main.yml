@@ -38,6 +38,7 @@
   cron:
     name: Glpiinventory run
     state: present
+    user: root
     job: "{{ glpi_batch_command }}"
     weekday: '1'
     hour: '*'
