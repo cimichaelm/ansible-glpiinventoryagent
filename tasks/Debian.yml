@@ -55,10 +55,12 @@
   service:
     name: glpi-agent
     state: disabled
+  become: yes
   when: not glpi_daemon
 
 - name: Stop glpi-agent
   service:
     name: glpi-agent
     state: stopped
+  become: yes
   when: not glpi_daemon
