@@ -43,6 +43,14 @@
   debug:
     msg: "{{ installlog.stdout }}"
 
+- name: Ensure configuration file is updated
+  template:
+    src: agent.cfg
+    dest: "{{ glpiinventoryagent_configdir }}/{{ glpiinventoryagent_configfile }}"
+    mode: 0640
+  tags: [always, glpiinventoryagent, cfg]
+  register: configfile
+
 - name: Run Agent
   ansible.builtin.command:
     cmd: "{{ glpiinventoryagent_command }}"
