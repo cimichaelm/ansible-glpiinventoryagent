@@ -6,10 +6,11 @@ defaults()
     tmpdir=/var/tmp
     logdir=/var/tmp/log
     logfile="${logdir}/install.log"
-    ver=1.4
+    ver=1.5
     prog="glpi-agent-${ver}-linux-installer.pl"
     # installtype: typical, network, all
     installtype="typical"
+    # -v
     progopts="--install --type=${installtype} --no-httpd"
 }
 
