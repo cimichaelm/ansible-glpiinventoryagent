@@ -21,6 +21,14 @@
   get_url: url="{{ glpiagenturl }}" dest="{{ glpi_workdir }}" mode=0755
 - name: Copy install script
   copy: src=glpi-agent-install.sh dest="{{ glpi_workdir }}" owner=root group=root mode=0755
+
+- name: Stop glpi-agent
+  service:
+    name: glpi-agent
+    state: stopped
+    enabled: false
+  become: yes
+  
 - name: Run Installer
   ansible.builtin.command:
     cmd: "{{ glpi_workdir }}/glpi-agent-install.sh {{ glpiinventoryagent_server_url }} {{  glpi_inventorydir }}"
