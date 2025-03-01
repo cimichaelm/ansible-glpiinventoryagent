@@ -1,7 +1,7 @@
 ---
 # vars file for ansible-glpiinventory-agent
 glpiinventoryagent_pkgs: []
-glpiagentversion: "1.5"
+glpiagentversion: "1.12"
 glpibaseurl: https://github.com/glpi-project
 glpiagenturl: "{{ glpibaseurl }}/glpi-agent/releases/download/{{glpiagentversion }}/glpi-agent-{{ glpiagentversion }}-linux-installer.pl"
 glpiagentinstaller: "glpi-agent-{{ glpiagentversion }}-linux-installer.pl"
